@@ -1,12 +1,28 @@
+import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+import Home from "./pages/Home";
+import SignIn from "./pages/SignIn";
+import SignUp from "./pages/SignUp";
+import ForgotPassword from "./pages/ForgotPassword";
+import Offers from "./pages/Offers";
+import Profile from "./pages/Profile";
+import Header from "./components/Header";
 
-import './App.css'
 
 function App() {
 
   return (
     <>
-      <h1 className='text-4xl text-center'>Realtor React Application</h1>
-      <p>Build with Vite and tailwind css</p>
+     <Router>
+      <Header />
+        <Routes>
+          <Route exact path="/" element={<Home />} />
+          <Route path="/sign-in" element={<SignIn />} />
+          <Route path="/sign-up" element={<SignUp />} />
+          <Route path="/forgot-password" element={<ForgotPassword />} />
+          <Route path="/offers" element={<Offers />} />
+          <Route path="/profile" element={<Profile />} />
+        </Routes>
+      </Router>
     </>
   )
 }
